@@ -1,0 +1,31 @@
+{
+  "name": "ledc/crmeb-poster",
+  "description": "Crmeb单商户系统-海报插件，支持设计商品海报、用户海报、线下店铺海报、线下渠道海报、线下活动海报。",
+  "type": "library",
+  "license": "MIT",
+  "autoload": {
+    "psr-4": {
+      "Ledc\\CrmebPoster\\": "src/"
+    }
+  },
+  "authors": [
+    {
+      "name": "david",
+      "email": "367013672@qq.com"
+    }
+  ],
+  "require": {
+    "php": ">=7.4",
+    "topthink/framework": ">=6.0",
+    "ext-json": "*",
+    "ext-openssl": "*",
+    "ext-ctype": "*"
+  },
+  "extra": {
+    "think": {
+      "services": [
+        "Ledc\\CrmebPoster\\Service"
+      ]
+    }
+  }
+}
