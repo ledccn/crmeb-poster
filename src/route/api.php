@@ -13,6 +13,7 @@ use think\facade\Route;
 Route::group('poster', function () {
     // 海报
     Route::get('poster', implode('@', [Poster::class, 'index']))->option(['real_name' => '海报列表']);
+    Route::get('poster_details', implode('@', [Poster::class, 'details']))->option(['real_name' => '海报详情']);
 
     // 海报类型
     Route::get('poster_type', implode('@', [PosterType::class, 'index']))->option(['real_name' => '海报类型列表']);

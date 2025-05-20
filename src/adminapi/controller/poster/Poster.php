@@ -88,6 +88,21 @@ class Poster extends AuthController
     }
 
     /**
+     * 显示指定的资源
+     * @method GET
+     * @param Request $request
+     * @return Response
+     * @throws DataNotFoundException
+     * @throws DbException
+     * @throws ModelNotFoundException
+     */
+    public function read(Request $request): Response
+    {
+        $id = $request->get('id/d');
+        return response_json()->success('ok', $this->services->getDao()->get($id)->toArray());
+    }
+
+    /**
      * 删除指定资源
      * @method DELETE
      * @param int|string $id

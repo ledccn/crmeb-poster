@@ -17,6 +17,7 @@ Route::group('poster', function () {
         Route::get('index', implode('@', [Poster::class, 'index']))->option(['real_name' => '海报列表']);
         Route::post('save', implode('@', [Poster::class, 'save']))->option(['real_name' => '保存海报']);
         Route::delete(':id', implode('@', [Poster::class, 'delete']))->option(['real_name' => '删除海报']);
+        Route::get('read', implode('@', [Poster::class, 'read']))->option(['real_name' => '海报详情']);
     });
 
     // 海报类型

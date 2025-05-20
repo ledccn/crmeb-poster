@@ -49,4 +49,19 @@ class Poster
 
         return response_json()->success($this->services->getList(filter_where($where)));
     }
+
+    /**
+     * 显示指定的资源
+     * @method GET
+     * @param Request $request
+     * @return Response
+     * @throws DataNotFoundException
+     * @throws DbException
+     * @throws ModelNotFoundException
+     */
+    public function details(Request $request): Response
+    {
+        $id = $request->get('id/d');
+        return response_json()->success('ok', $this->services->getDao()->get($id)->toArray());
+    }
 }
