@@ -46,7 +46,7 @@ class PosterType extends AuthController
         $id = $request->post('id/d', 0);
         $data = $request->postMore(['title', 'parser', 'icon', 'description']);
 
-        $this->validate($data, PosterTypeValidate::class);
+        validate(PosterTypeValidate::class)->check($data);
 
         if ($id) {
             $model = EbPosterType::findOrFail($id);

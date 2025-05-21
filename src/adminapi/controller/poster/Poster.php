@@ -73,7 +73,7 @@ class Poster extends AuthController
             ['enabled', 1],
         ]);
 
-        $this->validate($data, PosterValidate::class);
+        validate(PosterValidate::class)->check($data);
 
         if ($id) {
             // 编辑
