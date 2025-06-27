@@ -7,6 +7,7 @@ use app\http\middleware\AllowOriginMiddleware;
 use Ledc\CrmebPoster\adminapi\controller\poster\Poster;
 use Ledc\CrmebPoster\adminapi\controller\poster\PosterType;
 use think\facade\Route;
+use think\Response;
 
 /**
  * 海报&海报类型 相关路由
@@ -24,6 +25,16 @@ Route::group('poster', function () {
     Route::group('poster_type', function () {
         Route::get('index', implode('@', [PosterType::class, 'index']))->option(['real_name' => '海报类型列表']);
         Route::post('save', implode('@', [PosterType::class, 'save']))->option(['real_name' => '保存海报类型']);
+    });
+
+    Route::miss(function () {
+        if (app()->request->isOptions()) {
+            $header = \think\Facade\Config::get('cookie.header');
+            unset($header['Access-Control-Allow-Credentials']);
+            return Response::create('ok')->code(200)->header($header);
+        } else {
+            return Response::create()->code(404);
+        }
     });
 })->middleware([
     AllowOriginMiddleware::class,

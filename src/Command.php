@@ -21,7 +21,7 @@ class Command extends \think\console\Command
     {
         // 指令配置
         $this->setName('install:migrate:crmeb-poster')
-            ->setDescription('安装海报插件的数据库迁移文件');
+            ->setDescription('安装插件的数据库迁移文件');
 
         // 迁移文件映射
         $this->setFileMaps([
